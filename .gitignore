@@ -1,2 +1,7 @@
 obj
 bin
+.vs/mslearn-ai-vision.generated/DesignTimeBuild/.dtbcache.v2
+*.vsidx
+.vs/mslearn-ai-vision.generated/v17/.suo
+*.bin
+*.v2
