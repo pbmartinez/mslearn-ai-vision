@@ -47,19 +47,11 @@ namespace image_analysis
 
         static async Task Main(string[] args)
         {
-            var builder = CreateHostBuilder(args);
-            using IHost host = builder.Build();
-
-            // Application code should start here.
-            await Console.Out.WriteLineAsync("mi rograma");
+            using IHost host = CreateHostBuilder(args).Build();
+            await Console.Out.WriteLineAsync("Starting program");
             try
             {
-                // Get image
-                string imageFile = "images/street.jpg";
-                if (args.Length > 0)
-                {
-                    imageFile = args[0];
-                }
+                string imageFile = args.Length > 0 ? args[0] : "images/street.jpg";
                 var analyzeService = host.Services.GetRequiredService<IAnalyzeService>();
                 var result = analyzeService.GetImageAnalysisResult(imageFile);
                 var processors = host.Services.GetRequiredService<IEnumerable<IProcessImageResult>>();
