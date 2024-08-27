@@ -5,3 +5,5 @@ bin
 .vs/mslearn-ai-vision.generated/v17/.suo
 *.bin
 *.v2
+*.testlog
+*.manifest
