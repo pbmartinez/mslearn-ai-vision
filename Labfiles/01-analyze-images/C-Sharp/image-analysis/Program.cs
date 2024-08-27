@@ -1,73 +1,74 @@
-using System;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Drawing;
-using Microsoft.Extensions.Configuration;
 using Azure;
-
-// Import namespaces
+using Azure.AI.Vision.ImageAnalysis;
+using image_analysis.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using image_analysis.ProcessImage;
+using image_analysis.Analyze;
+using Microsoft.Extensions.Options;
 
 namespace image_analysis
 {
     class Program
     {
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(cfg =>
+            {
+                cfg.AddJsonFile("appsettings.json");
+            })
+            .ConfigureServices((hostContext, services) =>
+            {
+                // register your services here.
+                services.Configure<AzOptions>(hostContext.Configuration.GetSection("AzOptions"));
+                services.AddScoped<IAnalyzeService, AnalyzeService>();
+                services.AddSingleton(service =>
+                {
+                    var azOptions = service.GetRequiredService<IOptions<AzOptions>>();
+                    return new ImageAnalysisClient(
+                                new Uri(azOptions.Value.AIServicesEndpoint),
+                                new AzureKeyCredential(azOptions.Value.AIServicesKey));
+                });
+                services.AddScoped(services =>
+                {
+                    return new IProcessImageResult[]
+                    {
+                        new ProcessCaption(), new ProcessDenseCaption(), new ProcessObjects(), new ProcessPeople()
+                    }.AsEnumerable();
+                });
+            });
 
         static async Task Main(string[] args)
         {
+            var builder = CreateHostBuilder(args);
+            using IHost host = builder.Build();
+
+            // Application code should start here.
+            await Console.Out.WriteLineAsync("mi rograma");
             try
             {
-                // Get config settings from AppSettings
-                IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-                IConfigurationRoot configuration = builder.Build();
-                string aiSvcEndpoint = configuration["AIServicesEndpoint"];
-                string aiSvcKey = configuration["AIServicesKey"];
-
                 // Get image
                 string imageFile = "images/street.jpg";
                 if (args.Length > 0)
                 {
                     imageFile = args[0];
                 }
-
-                // Authenticate Azure AI Vision client
-
-                
-                // Analyze image
-                AnalyzeImage(imageFile, client);
-
-                // Remove the background or generate a foreground matte from the image
-                await BackgroundForeground(imageFile, aiSvcEndpoint, aiSvcKey);
-
+                var analyzeService = host.Services.GetRequiredService<IAnalyzeService>();
+                var result = analyzeService.GetImageAnalysisResult(imageFile);
+                var processors = host.Services.GetRequiredService<IEnumerable<IProcessImageResult>>();
+                processors.ToList().ForEach(p => p.Process(result,imageFile));
+                var pictureBack = await analyzeService.BackgroundForeground(imageFile);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-        }
-
-        static void AnalyzeImage(string imageFile, ImageAnalysisClient client)
-        {
-            Console.WriteLine($"\nAnalyzing {imageFile} \n");
-
-            // Use a file stream to pass the image data to the analyze call
-            using FileStream stream = new FileStream(imageFile,
-                                                     FileMode.Open);
-
-            // Get result with specified features to be retrieved
-            
-            
-            // Display analysis results
-            
-
-        }
-        static async Task BackgroundForeground(string imageFile, string endpoint, string key)
-        {
-            // Remove the background from the image or generate a foreground matte
-            
+            await host.RunAsync();
         }
     }
 }
