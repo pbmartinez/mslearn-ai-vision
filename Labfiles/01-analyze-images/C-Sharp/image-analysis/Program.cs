@@ -20,7 +20,9 @@ namespace image_analysis
         Host.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration(cfg =>
             {
-                cfg.AddJsonFile("appsettings.json");
+                cfg.AddJsonFile("appsettings.json")
+                    //todo Change secret id for assembly
+                   .AddUserSecrets("780126f1-21ac-4b58-ae35-41108f50e15b");
             })
             .ConfigureServices((hostContext, services) =>
             {
