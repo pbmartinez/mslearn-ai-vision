@@ -1,0 +1,135 @@
+﻿1
+00:00:01,680 --> 00:00:05,170
+Speaker #1: We believe in the potential of AI to improve our
+
+2
+00:00:05,243 --> 00:00:07,279
+Speaker #1: lives in big and small ways.
+
+3
+00:00:07,600 --> 00:00:09,783
+Speaker #1: We need to make sure it's for the benefit of
+
+4
+00:00:09,833 --> 00:00:10,280
+Speaker #1: everyone.
+
+5
+00:00:10,920 --> 00:00:14,881
+Speaker #2: For the first time, we're having machines move into roles
+
+6
+00:00:14,950 --> 00:00:17,799
+Speaker #2: that have been the roles of human beings.
+
+7
+00:00:18,040 --> 00:00:21,880
+Speaker #2: Might these technologies have inadvertent effects on people in society?
+
+8
+00:00:21,880 --> 00:00:24,880
+Speaker #2: Do they align with people's values, their ethics?
+
+9
+00:00:24,960 --> 00:00:28,080
+Speaker #2: We needed to think through the implications for our company.
+
+10
+00:00:29,000 --> 00:00:33,009
+Speaker #1: Responsible AI is the approach that we take to developing
+
+11
+00:00:33,079 --> 00:00:37,862
+Speaker #1: and deploying our technology, making sure our principles are brought
+
+12
+00:00:37,932 --> 00:00:41,660
+Speaker #1: to life in that it empowers everyone and is inclusive
+
+13
+00:00:41,731 --> 00:00:43,559
+Speaker #1: and accessible for people.
+
+14
+00:00:45,400 --> 00:00:48,136
+Speaker #1: The job of the office of Responsible AI is to
+
+15
+00:00:48,196 --> 00:00:52,452
+Speaker #1: put our principles into practice by operationalising ethics across the
+
+16
+00:00:52,513 --> 00:00:53,000
+Speaker #1: company.
+
+17
+00:00:53,120 --> 00:00:53,200
+Speaker #1: The.
+
+18
+00:00:53,240 --> 00:00:57,360
+Speaker #2: Ether committee is responsible for deliberating about hard new questions.
+
+19
+00:00:57,400 --> 00:00:59,680
+Speaker #1: We are sister organisations.
+
+20
+00:01:00,640 --> 00:01:03,632
+Speaker #2: We have to think through what it means to detect
+
+21
+00:01:03,694 --> 00:01:07,060
+Speaker #2: bias, make our systems more fair, to detect errors and
+
+22
+00:01:07,123 --> 00:01:10,863
+Speaker #2: blind spots in our technologies, and on thinking through the
+
+23
+00:01:10,925 --> 00:01:14,229
+Speaker #2: kinds of advice we give to other organizations and to
+
+24
+00:01:14,291 --> 00:01:15,040
+Speaker #2: our leaders.
+
+25
+00:01:15,200 --> 00:01:18,960
+Speaker #2: Where technology can impose on privacy and human rights.
+
+26
+00:01:19,040 --> 00:01:20,720
+Speaker #2: Responsibility is at the core.
+
+27
+00:01:21,800 --> 00:01:26,400
+Speaker #2: We're learning everyday about this new role of responsible computing.
+
+28
+00:01:26,640 --> 00:01:30,514
+Speaker #1: We need to translate academic thought to language that our
+
+29
+00:01:30,580 --> 00:01:33,520
+Speaker #1: engineers and salespeople are familiar with.
+
+30
+00:01:34,560 --> 00:01:37,560
+Speaker #1: Our customers are grappling with many of the same issues.
+
+31
+00:01:37,720 --> 00:01:40,400
+Speaker #1: It's incumbent on us to share what we learn.
+
+32
+00:01:41,120 --> 00:01:43,949
+Speaker #2: It's about trying to do better every day, working with
+
+33
+00:01:44,001 --> 00:01:47,512
+Speaker #2: our customers and outside agencies to develop processes and deliver
+
+34
+00:01:47,564 --> 00:01:50,079
+Speaker #2: responsible computing technologies to the world.
